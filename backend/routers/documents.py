@@ -4,10 +4,10 @@
 """
 Document management endpoints
 """
-from fastapi import APIRouter, UploadFile, File, Depends, HTTPException
-from typing import List, Optional
-import tempfile
 import os
+import tempfile
+from typing import Optional
+from fastapi import APIRouter, UploadFile, File, Depends, HTTPException
 from backend.core.dependencies import get_docmemory_system
 
 router = APIRouter()

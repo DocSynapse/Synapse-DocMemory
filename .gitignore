@@ -14,6 +14,9 @@ ENV/
 *.egg-info/
 dist/
 build/
+*.bak
+*.backup
+*.tmp
 
 # Node
 node_modules/
@@ -49,12 +52,19 @@ htmlcov/
 .env*.local
 .env.production
 
-# Storage
+# Storage (test data and databases)
 docmemory_storage/
 test_docmemory_storage/
 *.db
 *.db-journal
 *.bin
+*.sqlite
+*.sqlite3
+
+# Build artifacts
+*.egg-info/
+*.whl
+*.tar.gz
 
 # Logs
 *.log
@@ -66,4 +76,22 @@ logs/
 # OS
 Thumbs.db
 .DS_Store
+
+# Documentation artifacts (keep source, ignore generated)
+*.pdf
+*.epub
+
+# Temporary scaffold files
+SCAFFOLD_SUMMARY.md
+DOCUMENTATION_SUMMARY.md
+
+# Legacy web interface (replaced by frontend/)
+web/__pycache__/
+web/*.pyc
+
+# IDE specific
+*.code-workspace
+.project
+.classpath
+.settings/
 

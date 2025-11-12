@@ -4,9 +4,9 @@
 """
 Search endpoints
 """
+from typing import Literal
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
-from typing import Optional, Literal
 from backend.core.dependencies import get_docmemory_system
 
 router = APIRouter()

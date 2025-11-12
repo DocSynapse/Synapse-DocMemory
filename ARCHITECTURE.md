@@ -30,7 +30,7 @@ DocMemory implements a **hybrid document retrieval system** that combines:
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │                    Application Interface                      │
-│              DocSynapseSystem (main.py)                       │
+│              DocMemorySystem (main.py)                       │
 └────────────────────┬─────────────────────────────────────────┘
                      │
      ┌───────────────┼───────────────┐
@@ -48,7 +48,7 @@ DocMemory implements a **hybrid document retrieval system** that combines:
        └───────────────┼─────────────────┘
                        ▼
         ┌──────────────────────────────┐
-        │      DocSynapseCore          │
+        │      DocMemoryCore           │
         │   (Core Memory Management)    │
         │                               │
         │  ┌─────────┐  ┌────────────┐ │

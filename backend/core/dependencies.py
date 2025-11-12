@@ -5,14 +5,14 @@
 Shared dependencies for FastAPI routes
 """
 from functools import lru_cache
-import sys
 from pathlib import Path
+import sys
 
 # Add project root to path
 project_root = Path(__file__).parent.parent.parent
-sys.path.insert(0, str(project_root))
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 
-# Import DocMemorySystem from main.py
 from main import DocMemorySystem
 from backend.core.config import settings
 

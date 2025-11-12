@@ -161,27 +161,25 @@ pip install -r requirements-dev.txt
 pytest tests/
 
 # 6. Verify installation
-python -c "from docsynapse import create_system; print('Success!')"
+python -c "from main import DocMemorySystem; print('Success!')"
 ```
 
 ### Project Structure
 
 ```
 docmemory/
-├── docsynapse/              # Main package
-│   ├── __init__.py
-│   ├── src/
-│   │   ├── docsynapse_core.py
-│   │   ├── search_engine.py
-│   │   ├── document_processor.py
-│   │   └── auto_save_load.py
-│   └── main.py
-├── tests/                   # Test suite (to be added)
+├── src/                     # Core library
+│   ├── docmemory_core.py
+│   ├── search_engine.py
+│   ├── document_processor.py
+│   └── auto_save_load.py
+├── backend/                 # FastAPI backend
+├── frontend/                # Next.js frontend
+├── tests/                   # Test suite
 ├── docs/                    # Documentation
-├── examples/                # Example scripts
+├── main.py                  # Main entry point
 ├── requirements.txt
-├── requirements-dev.txt
-├── setup.py
+├── pyproject.toml
 └── README.md
 ```
 
@@ -208,9 +206,9 @@ We follow [PEP 8](https://peps.python.org/pep-0008/) with some flexibility:
 
 ```bash
 # Format your code before committing
-black docsynapse/
-isort docsynapse/
-flake8 docsynapse/
+black src/ backend/
+isort src/ backend/
+flake8 src/ backend/
 ```
 
 ### Docstring Format
@@ -243,11 +241,11 @@ def search_documents(query: str, limit: int = 10) -> List[Dict]:
 **Writing tests:**
 ```python
 import pytest
-from docsynapse import create_system
+from main import DocMemorySystem
 
 def test_document_ingestion():
     """Test basic document ingestion and retrieval"""
-    system = create_system(storage_path="./test_storage/")
+    system = DocMemorySystem(storage_path="./test_storage/")
     
     # Add test document
     doc_ids = system.add_document_from_file(
