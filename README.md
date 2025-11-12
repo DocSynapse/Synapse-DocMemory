@@ -439,7 +439,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](./LICEN
 
 ```
 MIT License - Free to use, modify, and distribute.
-Built with ❤️ for the community.
+Built with ❤️ for Del, Aldebaran, Aimee, Audrey.
 ```
 
 ---
