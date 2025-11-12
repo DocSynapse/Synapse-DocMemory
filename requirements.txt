@@ -1,0 +1,32 @@
+# DocMemory Requirements
+# Core dependencies for running DocMemory
+
+# Numerical computing and arrays
+numpy>=1.21.0
+
+# Vector similarity search
+faiss-cpu>=1.7.0
+
+# Embedding generation
+sentence-transformers>=2.2.0
+
+# Document processing - PDF
+PyPDF2>=3.0.0
+pdfminer.six>=20220524
+
+# Document processing - DOCX
+python-docx>=0.8.11
+
+# Document processing - Data
+pandas>=1.3.0
+
+# Document processing - HTML
+beautifulsoup4>=4.10.0
+
+# Image processing
+Pillow>=9.0.0
+
+# OCR (optional but recommended)
+pytesseract>=0.3.0
+
+# Note: sqlite3 is included with Python standard library

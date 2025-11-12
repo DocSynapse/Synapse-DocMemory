@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background:#1e1e1e">
+  <!-- Title -->
+  <text x="400" y="30" text-anchor="middle" fill="#e0e0e0" font-size="20" font-weight="bold">
+    DocMemory Architecture
+  </text>
+  
+  <!-- Application Layer -->
+  <rect x="150" y="60" width="500" height="60" rx="8" fill="#2d2d30" stroke="#007acc" stroke-width="2"/>
+  <text x="400" y="85" text-anchor="middle" fill="#e0e0e0" font-size="14" font-weight="bold">
+    Application Layer
+  </text>
+  <text x="400" y="105" text-anchor="middle" fill="#b0b0b0" font-size="12">
+    Unified System Interface
+  </text>
+  
+  <!-- Arrow down -->
+  <line x1="400" y1="120" x2="400" y2="150" stroke="#808080" stroke-width="2"/>
+  <polygon points="400,150 395,140 405,140" fill="#808080"/>
+  
+  <!-- Three components layer -->
+  <!-- Document Processor -->
+  <rect x="50" y="170" width="160" height="120" rx="8" fill="#2d2d30" stroke="#4ec9b0" stroke-width="2"/>
+  <text x="130" y="195" text-anchor="middle" fill="#e0e0e0" font-size="14" font-weight="bold">
+    Document Processor
+  </text>
+  <text x="130" y="220" text-anchor="middle" fill="#b0b0b0" font-size="11">
+    • Multi-format parsing
+  </text>
+  <text x="130" y="240" text-anchor="middle" fill="#b0b0b0" font-size="11">
+    • Smart chunking
+  </text>
+  <text x="130" y="260" text-anchor="middle" fill="#b0b0b0" font-size="11">
+    • Embedding generation
+  </text>
+  
+  <!-- Search Engine -->
+  <rect x="320" y="170" width="160" height="120" rx="8" fill="#2d2d30" stroke="#ce9178" stroke-width="2"/>
+  <text x="400" y="195" text-anchor="middle" fill="#e0e0e0" font-size="14" font-weight="bold">
+    Search Engine
+  </text>
+  <text x="400" y="220" text-anchor="middle" fill="#b0b0b0" font-size="11">
+    • Semantic search
+  </text>
+  <text x="400" y="240" text-anchor="middle" fill="#b0b0b0" font-size="11">
+    • Keyword search
+  </text>
+  <text x="400" y="260" text-anchor="middle" fill="#b0b0b0" font-size="11">
+    • Hybrid fusion
+  </text>
+  
+  <!-- Persistence Manager -->
+  <rect x="590" y="170" width="160" height="120" rx="8" fill="#2d2d30" stroke="#dcdcaa" stroke-width="2"/>
+  <text x="670" y="195" text-anchor="middle" fill="#e0e0e0" font-size="14" font-weight="bold">
+    Persistence Manager
+  </text>
+  <text x="670" y="220" text-anchor="middle" fill="#b0b0b0" font-size="11">
+    • Auto-save
+  </text>
+  <text x="670" y="240" text-anchor="middle" fill="#b0b0b0" font-size="11">
+    • Backup rotation
+  </text>
+  <text x="670" y="260" text-anchor="middle" fill="#b0b0b0" font-size="11">
+    • Recovery
+  </text>
+  
+  <!-- Arrows from components to core -->
+  <line x1="130" y1="290" x2="300" y2="350" stroke="#808080" stroke-width="2"/>
+  <line x1="400" y1="290" x2="400" y2="350" stroke="#808080" stroke-width="2"/>
+  <line x1="670" y1="290" x2="500" y2="350" stroke="#808080" stroke-width="2"/>
+  
+  <!-- Core Memory System -->
+  <rect x="200" y="360" width="400" height="180" rx="8" fill="#2d2d30" stroke="#007acc" stroke-width="2"/>
+  <text x="400" y="385" text-anchor="middle" fill="#e0e0e0" font-size="16" font-weight="bold">
+    Core Memory System
+  </text>
+  
+  <!-- SQLite -->
+  <rect x="230" y="410" width="150" height="110" rx="6" fill="#1e1e1e" stroke="#569cd6" stroke-width="1.5"/>
+  <text x="305" y="435" text-anchor="middle" fill="#569cd6" font-size="13" font-weight="bold">
+    SQLite Database
+  </text>
+  <text x="305" y="460" text-anchor="middle" fill="#b0b0b0" font-size="10">
+    • Metadata storage
+  </text>
+  <text x="305" y="478" text-anchor="middle" fill="#b0b0b0" font-size="10">
+    • Document content
+  </text>
+  <text x="305" y="496" text-anchor="middle" fill="#b0b0b0" font-size="10">
+    • Tags & relationships
+  </text>
+  
+  <!-- FAISS -->
+  <rect x="420" y="410" width="150" height="110" rx="6" fill="#1e1e1e" stroke="#c586c0" stroke-width="1.5"/>
+  <text x="495" y="435" text-anchor="middle" fill="#c586c0" font-size="13" font-weight="bold">
+    FAISS Index
+  </text>
+  <text x="495" y="460" text-anchor="middle" fill="#b0b0b0" font-size="10">
+    • Vector embeddings
+  </text>
+  <text x="495" y="478" text-anchor="middle" fill="#b0b0b0" font-size="10">
+    • Similarity search
+  </text>
+  <text x="495" y="496" text-anchor="middle" fill="#b0b0b0" font-size="10">
+    • 384-dimensional
+  </text>
+  
+  <!-- Legend -->
+  <text x="50" y="570" fill="#808080" font-size="10">
+    Storage: SQLite + FAISS | Embeddings: Sentence Transformers | Search: Hybrid (70% semantic + 30% keyword)
+  </text>
+</svg>

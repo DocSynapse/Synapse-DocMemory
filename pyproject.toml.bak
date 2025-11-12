@@ -1,0 +1,30 @@
+[project]
+name = "docmemory"
+version = "1.0.0"
+description = "Advanced Document Memory System for AI Applications"
+authors = [
+    {name = "DocMemory Team"}
+]
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "numpy>=1.21.0",
+    "faiss-cpu>=1.7.0",
+    "sqlite3",
+    "PyPDF2>=3.0.0",
+    "python-docx>=0.8.11",
+    "pandas>=1.3.0",
+    "beautifulsoup4>=4.10.0",
+    "sentence-transformers>=2.2.0",
+    "Pillow>=9.0.0",
+    "pytesseract>=0.3.0",
+    "pdfminer.six>=20220524",
+]
+
+[project.urls]
+Homepage = "https://github.com/docmemory/docmemory"
+Repository = "https://github.com/docmemory/docmemory"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
