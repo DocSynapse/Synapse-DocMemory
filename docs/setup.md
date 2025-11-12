@@ -26,8 +26,8 @@
 #### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/docmemory.git
-cd docmemory
+git clone https://github.com/DocSynapse/Synapse-DocMemory.git
+cd Synapse-DocMemory
 ```
 
 #### Step 2: Backend Setup
@@ -94,8 +94,8 @@ Access the application:
 #### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/docmemory.git
-cd docmemory
+git clone https://github.com/DocSynapse/Synapse-DocMemory.git
+cd Synapse-DocMemory
 ```
 
 #### Step 2: Build and Run with Docker Compose

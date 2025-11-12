@@ -39,8 +39,8 @@ Complete installation instructions for DocMemory on different platforms.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/yourusername/docmemory.git
-cd docmemory
+git clone https://github.com/DocSynapse/Synapse-DocMemory.git
+cd Synapse-DocMemory
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -86,12 +86,12 @@ brew install python@3.9
 
 ```bash
 # Using HTTPS
-git clone https://github.com/yourusername/docmemory.git
+git clone https://github.com/DocSynapse/Synapse-DocMemory.git
 
 # Or using SSH
-git clone git@github.com:yourusername/docmemory.git
+git clone git@github.com:DocSynapse/Synapse-DocMemory.git
 
-cd docmemory
+cd Synapse-DocMemory
 ```
 
 ### 3. Create Virtual Environment (Recommended)
@@ -440,8 +440,8 @@ For contributors who want to modify the code:
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/docmemory.git
-cd docmemory
+git clone https://github.com/DocSynapse/Synapse-DocMemory.git
+cd Synapse-DocMemory
 
 # Install in editable mode
 pip install -e .

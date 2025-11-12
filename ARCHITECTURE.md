@@ -564,8 +564,8 @@ If you're new to these concepts:
 
 Found something unclear? Want to propose an architectural change?
 
-- Open an issue: [GitHub Issues](https://github.com/yourusername/docmemory/issues)
-- Start a discussion: [GitHub Discussions](https://github.com/yourusername/docmemory/discussions)
+- Open an issue: [GitHub Issues](https://github.com/DocSynapse/Synapse-DocMemory/issues)
+- Start a discussion: [GitHub Discussions](https://github.com/DocSynapse/Synapse-DocMemory/discussions)
 
 ---
 

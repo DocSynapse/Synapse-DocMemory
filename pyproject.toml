@@ -21,8 +21,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/docmemory/docmemory"
-Repository = "https://github.com/docmemory/docmemory"
+Homepage = "https://github.com/DocSynapse/Synapse-DocMemory"
+Repository = "https://github.com/DocSynapse/Synapse-DocMemory"
 
 [build-system]
 requires = ["setuptools>=45", "wheel"]

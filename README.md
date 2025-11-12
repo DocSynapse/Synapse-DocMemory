@@ -210,8 +210,8 @@ DocMemory/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/docmemory.git
-cd docmemory
+git clone https://github.com/DocSynapse/Synapse-DocMemory.git
+cd Synapse-DocMemory
 
 # Start with Docker Compose
 docker-compose up --build
@@ -461,9 +461,8 @@ Special thanks to everyone who contributes, reports issues, or simply uses this 
 
 ## 📧 Contact & Support
 
-- **Issues:** [GitHub Issues](https://github.com/yourusername/docmemory/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/yourusername/docmemory/discussions)
-- **Email:** your.email@example.com
+- **Issues:** [GitHub Issues](https://github.com/DocSynapse/Synapse-DocMemory/issues)
+- **Discussions:** [GitHub Discussions](https://github.com/DocSynapse/Synapse-DocMemory/discussions)
 
 ---
 
@@ -473,6 +472,6 @@ Special thanks to everyone who contributes, reports issues, or simply uses this 
 
 *Architecture & Build by DocSynapse • Intelligent by Design. Crafted for Humanity.*
 
-[⭐ Star this repo](https://github.com/yourusername/docmemory) if you find it useful!
+[⭐ Star this repo](https://github.com/DocSynapse/Synapse-DocMemory) if you find it useful!
 
 </div>

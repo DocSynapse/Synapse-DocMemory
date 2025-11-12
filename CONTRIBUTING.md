@@ -144,8 +144,8 @@ git --version
 
 ```bash
 # 1. Fork and clone
-git clone https://github.com/YOUR_USERNAME/docmemory.git
-cd docmemory
+git clone https://github.com/DocSynapse/Synapse-DocMemory.git
+cd Synapse-DocMemory
 
 # 2. Create virtual environment
 python -m venv venv
@@ -399,8 +399,8 @@ Closes #[issue number]
 ## Questions?
 
 **Not sure where to start?**
-- Check [Good First Issues](https://github.com/yourusername/docmemory/labels/good%20first%20issue)
-- Ask in [Discussions](https://github.com/yourusername/docmemory/discussions)
+- Check [Good First Issues](https://github.com/DocSynapse/Synapse-DocMemory/labels/good%20first%20issue)
+- Ask in [Discussions](https://github.com/DocSynapse/Synapse-DocMemory/discussions)
 - Reach out via email: your.email@example.com
 
 **Need clarification?**
