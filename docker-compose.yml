@@ -14,11 +14,15 @@ services:
       - STORAGE_PATH=/app/storage
       - CORS_ORIGINS=http://localhost:3000,http://localhost:3001
     volumes:
-      - ./storage:/app/storage
-      - ./test_docmemory_storage:/app/test_docmemory_storage
-    # TODO: Add healthcheck
-    # TODO: Add restart policy
-    # TODO: Add resource limits
+      - ./aethersite_storage:/app/storage
+      - ./test_aethersite_storage:/app/test_aethersite_storage
+    command: uvicorn backend.main:app --host 0.0.0.0 --port 8000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
 
   frontend:
     build:
@@ -27,28 +31,11 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_API_URL=http://backend:8000
     depends_on:
       - backend
-    # TODO: Add nginx for production
-    # TODO: Add healthcheck
+    restart: unless-stopped
 
-  # TODO: Add PostgreSQL service when migrating
-  # postgres:
-  #   image: postgres:15-alpine
-  #   environment:
-  #     POSTGRES_DB: docmemory
-  #     POSTGRES_USER: docmemory
-  #     POSTGRES_PASSWORD: changeme
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data
-
-  # TODO: Add Redis service for caching
-  # redis:
-  #   image: redis:7-alpine
-  #   ports:
-  #     - "6379:6379"
-
-# volumes:
-#   postgres_data:
-
+volumes:
+  aethersite_storage:
+  test_aethersite_storage:

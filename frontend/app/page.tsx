@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <main className="min-h-screen p-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8">DocMemory</h1>
+        <h1 className="text-4xl font-bold mb-8">Aethersite</h1>
         <p className="text-lg mb-8">Semantic Document Memory System</p>
         
         <SearchBar onSearch={handleSearch} isLoading={isLoading} />

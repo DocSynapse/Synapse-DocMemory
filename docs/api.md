@@ -1,7 +1,7 @@
-# → Architecture & Build by DocSynapse
-# Intelligent by Design. Crafted for Humanity.
+<!-- → Architecture & Build by DocSynapse-->
+<!-- Intelligent by Design. Crafted for Humanity. -->
 
-# DocMemory API Documentation
+# Aethersite API Documentation
 
 ## Base URL
 
@@ -26,7 +26,7 @@ Check if the API is running.
 ```json
 {
   "status": "healthy",
-  "service": "DocMemory API"
+  "service": "Aethersite API"
 }
 ```
 
@@ -315,4 +315,3 @@ Current API version: `1.0.0`
 For API issues or questions:
 - GitHub Issues: [TODO: Add link]
 - Documentation: [TODO: Add link]
-

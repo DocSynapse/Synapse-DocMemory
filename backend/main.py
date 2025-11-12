@@ -2,22 +2,16 @@
 # Intelligent by Design. Crafted for Humanity.
 
 """
-DocMemory FastAPI Backend
+Aethersite FastAPI Backend
 Main application entry point
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pathlib import Path
-import sys
-
-# Add parent directory to path for imports
-sys.path.insert(0, str(Path(__file__).parent.parent))
-
-from backend.routers import documents, search, health
-from backend.core.config import settings
+from .routers import documents, search, health
+from .core.config import settings
 
 app = FastAPI(
-    title="DocMemory API",
+    title="Aethersite API",
     description="Semantic Document Memory System API",
     version="1.0.0"
 )
@@ -39,7 +33,7 @@ app.include_router(search.router, prefix="/api/search", tags=["search"])
 @app.get("/")
 async def root():
     return {
-        "message": "DocMemory API",
+        "message": "Aethersite API",
         "version": "1.0.0",
         "docs": "/docs"
     }
@@ -47,4 +41,3 @@ async def root():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
-

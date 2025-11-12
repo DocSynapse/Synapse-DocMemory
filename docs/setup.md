@@ -1,7 +1,7 @@
-# → Architecture & Build by DocSynapse
-# Intelligent by Design. Crafted for Humanity.
+<!-- → Architecture & Build by DocSynapse-->
+<!-- Intelligent by Design. Crafted for Humanity. -->
 
-# DocMemory Setup Guide
+# Aethersite Setup Guide
 
 ## Prerequisites
 
@@ -26,8 +26,8 @@
 #### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/DocSynapse/Synapse-DocMemory.git
-cd Synapse-DocMemory
+git clone https://github.com/DocSynapse/Aethersite.git
+cd Aethersite
 ```
 
 #### Step 2: Backend Setup
@@ -94,8 +94,8 @@ Access the application:
 #### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/DocSynapse/Synapse-DocMemory.git
-cd Synapse-DocMemory
+git clone https://github.com/DocSynapse/Aethersite.git
+cd Aethersite
 ```
 
 #### Step 2: Build and Run with Docker Compose
@@ -132,7 +132,7 @@ Expected response:
 ```json
 {
   "status": "healthy",
-  "service": "DocMemory API"
+  "service": "Aethersite API"
 }
 ```
 
@@ -308,4 +308,3 @@ After setup:
 - [ ] Configure CI/CD secrets
 - [ ] Set up SSL/TLS certificates
 - [ ] Configure backup strategy
-

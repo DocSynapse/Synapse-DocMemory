@@ -10,7 +10,7 @@ from typing import List
 class Settings(BaseSettings):
     # API Settings
     API_V1_PREFIX: str = "/api/v1"
-    PROJECT_NAME: str = "DocMemory API"
+    PROJECT_NAME: str = "Aethersite API"
     
     # CORS
     CORS_ORIGINS: List[str] = [

@@ -53,8 +53,8 @@ htmlcov/
 .env.production
 
 # Storage (test data and databases)
-docmemory_storage/
-test_docmemory_storage/
+aethersite_storage/
+test_aethersite_storage/
 *.db
 *.db-journal
 *.bin
@@ -85,13 +85,8 @@ Thumbs.db
 SCAFFOLD_SUMMARY.md
 DOCUMENTATION_SUMMARY.md
 
-# Legacy web interface (replaced by frontend/)
-web/__pycache__/
-web/*.pyc
-
 # IDE specific
 *.code-workspace
 .project
 .classpath
 .settings/
-

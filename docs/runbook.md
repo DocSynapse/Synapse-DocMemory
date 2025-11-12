@@ -1,7 +1,7 @@
-# → Architecture & Build by DocSynapse
-# Intelligent by Design. Crafted for Humanity.
+<!-- → Architecture & Build by DocSynapse-->
+<!-- Intelligent by Design. Crafted for Humanity. -->
 
-# DocMemory Runbook
+# Aethersite Runbook
 
 ## Operational Procedures
 
@@ -68,7 +68,7 @@ docker-compose down
 curl http://localhost:8000/api/health
 ```
 
-Expected: `{"status": "healthy", "service": "DocMemory API"}`
+Expected: `{"status": "healthy", "service": "Aethersite API"}`
 
 #### Check System Status
 ```bash
@@ -406,4 +406,3 @@ ls -la docmemory_storage/
 2. Monitor for issues
 3. Update documentation
 4. Update runbook if needed
-

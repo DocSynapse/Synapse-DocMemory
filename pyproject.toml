@@ -3,7 +3,7 @@ name = "docmemory"
 version = "1.0.0"
 description = "Advanced Document Memory System for AI Applications"
 authors = [
-    {name = "DocMemory Team"}
+    {name = "Aethersite Team"}
 ]
 readme = "README.md"
 requires-python = ">=3.8"
@@ -21,8 +21,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/DocSynapse/Synapse-DocMemory"
-Repository = "https://github.com/DocSynapse/Synapse-DocMemory"
+Homepage = "https://github.com/DocSynapse/Aethersite"
+Repository = "https://github.com/DocSynapse/Aethersite"
 
 [build-system]
 requires = ["setuptools>=45", "wheel"]

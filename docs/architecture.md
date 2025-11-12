@@ -1,11 +1,11 @@
-# → Architecture & Build by DocSynapse
-# Intelligent by Design. Crafted for Humanity.
+<!-- → Architecture & Build by DocSynapse-->
+<!-- Intelligent by Design. Crafted for Humanity. -->
 
-# DocMemory Architecture
+# Aethersite Architecture
 
 ## System Overview
 
-DocMemory is a full-stack semantic document memory system built with:
+Aethersite is a full-stack semantic document memory system built with:
 - **Frontend**: Next.js 14 with TypeScript and Tailwind CSS
 - **Backend**: FastAPI (Python) with RESTful API
 - **Storage**: SQLite + FAISS for vector search
@@ -46,7 +46,7 @@ DocMemory is a full-stack semantic document memory system built with:
 │         └──────────┬───────┘                                  │
 │                    │                                          │
 │         ┌──────────▼──────────┐                              │
-│         │  DocMemory System    │                              │
+│         │  Aethersite System    │                              │
 │         │  (Core Logic)         │                              │
 │         └──────────┬───────────┘                              │
 └────────────────────┼──────────────────────────────────────────┘
@@ -220,4 +220,3 @@ Nginx → Frontend (Next.js) → Backend (FastAPI) → PostgreSQL + FAISS
 - [ARCHITECTURE.md](../ARCHITECTURE.md) - Original architecture documentation
 - [API.md](./api.md) - API documentation
 - [SETUP.md](./setup.md) - Setup instructions
-

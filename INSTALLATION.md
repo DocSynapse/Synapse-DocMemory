@@ -1,6 +1,6 @@
 # Installation Guide
 
-Complete installation instructions for DocMemory on different platforms.
+Complete installation instructions for Aethersite on different platforms.
 
 ---
 
@@ -39,8 +39,8 @@ Complete installation instructions for DocMemory on different platforms.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/DocSynapse/Synapse-DocMemory.git
-cd Synapse-DocMemory
+git clone https://github.com/DocSynapse/Aethersite.git
+cd Aethersite
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -49,7 +49,7 @@ pip install -r requirements.txt
 python -c "from docsynapse import create_system; print('Installation successful!')"
 ```
 
-**That's it!** You're ready to use DocMemory.
+**That's it!** You're ready to use Aethersite.
 
 ---
 
@@ -86,12 +86,12 @@ brew install python@3.9
 
 ```bash
 # Using HTTPS
-git clone https://github.com/DocSynapse/Synapse-DocMemory.git
+git clone https://github.com/DocSynapse/Aethersite.git
 
 # Or using SSH
-git clone git@github.com:DocSynapse/Synapse-DocMemory.git
+git clone git@github.com:DocSynapse/Aethersite.git
 
-cd Synapse-DocMemory
+cd Aethersite
 ```
 
 ### 3. Create Virtual Environment (Recommended)
@@ -440,8 +440,8 @@ For contributors who want to modify the code:
 
 ```bash
 # Clone repository
-git clone https://github.com/DocSynapse/Synapse-DocMemory.git
-cd Synapse-DocMemory
+git clone https://github.com/DocSynapse/Aethersite.git
+cd Aethersite
 
 # Install in editable mode
 pip install -e .

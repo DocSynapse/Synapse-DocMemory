@@ -26,21 +26,14 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r backend/requirements.txt
-        pip install pytest pytest-cov pytest-asyncio httpx
+        pip install pytest pytest-cov pytest-asyncio httpx pre-commit
     
-    - name: Run backend unit tests
+    - name: Run pre-commit hooks
+      run: pre-commit run --all-files
+
+    - name: Run backend tests
       run: |
-        pytest tests/unit/ -v --cov=src --cov=backend --cov-report=xml
-    
-    - name: Run backend integration tests
-      run: |
-        pytest tests/integration/ -v
-    
-    # TODO: Add code coverage upload to codecov
-    # - name: Upload coverage to Codecov
-    #   uses: codecov/codecov-action@v3
-    #   with:
-    #     file: ./coverage.xml
+        pytest tests/ -v --cov=backend --cov-report=xml
 
   frontend-tests:
     runs-on: ubuntu-latest
@@ -53,7 +46,7 @@ jobs:
       with:
         node-version: '20'
         cache: 'npm'
-        cache-dir: frontend/.npm
+        cache-dependency-path: frontend/package-lock.json
     
     - name: Install dependencies
       working-directory: ./frontend
@@ -67,10 +60,9 @@ jobs:
       working-directory: ./frontend
       run: npm test -- --coverage --watchAll=false
     
-    # TODO: Add build test
-    # - name: Build
-    #   working-directory: ./frontend
-    #   run: npm run build
+    - name: Build
+      working-directory: ./frontend
+      run: npm run build
 
   docker-build:
     runs-on: ubuntu-latest
@@ -87,10 +79,6 @@ jobs:
       with:
         context: .
         push: false
-        tags: docmemory:test
+        tags: aethersite:test
         cache-from: type=gha
         cache-to: type=gha,mode=max
-    
-    # TODO: Add Docker image push to registry
-    # TODO: Add Docker image scanning
-

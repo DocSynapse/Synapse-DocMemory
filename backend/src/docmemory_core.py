@@ -1,5 +1,5 @@
 """
-DocMemory - Advanced Document Memory System
+Aethersite - Advanced Document Memory System
 Core Memory Management Implementation
 """
 import os
@@ -13,6 +13,7 @@ import numpy as np
 import sqlite3
 import faiss
 from dataclasses import dataclass, field
+import threading
 
 @dataclass
 class DocumentMemory:
@@ -30,13 +31,16 @@ class DocumentMemory:
     summary: str = ""
     page_numbers: List[int] = field(default_factory=list)  # if from multi-page doc
 
-class DocMemoryCore:
+class AethersiteCore:
     """Core memory management system for documents"""
     
     def __init__(self, storage_path: str = "./docmemory_storage/"):
         self.storage_path = Path(storage_path)
         self.storage_path.mkdir(exist_ok=True)
         
+        # Thread-local storage for database connections
+        self.local = threading.local()
+
         # Initialize storage components
         self._init_database()
         self._init_vector_index()
@@ -45,13 +49,18 @@ class DocMemoryCore:
         self.document_memories = {}  # In-memory cache for active documents
         self.unsaved_changes = {}    # Track changes for auto-save
         
+    def _get_db_connection(self):
+        """Get a database connection for the current thread."""
+        if not hasattr(self.local, 'conn'):
+            self.local.conn = sqlite3.connect(self.db_path, check_same_thread=False)
+            self.local.conn.row_factory = sqlite3.Row
+        return self.local.conn
+
     def _init_database(self):
         """Initialize SQLite database for metadata storage"""
         self.db_path = self.storage_path / "document_memories.db"
-        self.conn = sqlite3.connect(self.db_path)
-        self.conn.row_factory = sqlite3.Row  # Enable column access by name
-        
-        cursor = self.conn.cursor()
+        conn = self._get_db_connection()
+        cursor = conn.cursor()
         
         # Create tables
         cursor.execute('''
@@ -78,7 +87,7 @@ class DocMemoryCore:
             )
         ''')
         
-        self.conn.commit()
+        conn.commit()
     
     def _init_vector_index(self):
         """Initialize FAISS vector index for similarity search"""
@@ -94,7 +103,8 @@ class DocMemoryCore:
     
     def _load_existing_embeddings(self):
         """Load existing embeddings from database to FAISS index"""
-        cursor = self.conn.cursor()
+        conn = self._get_db_connection()
+        cursor = conn.cursor()
         cursor.execute("SELECT id, embedding FROM document_embeddings ORDER BY id")
         
         index_counter = 0
@@ -161,7 +171,8 @@ class DocMemoryCore:
     
     def _store_in_database(self, doc_memory: DocumentMemory):
         """Store document metadata in SQLite database"""
-        cursor = self.conn.cursor()
+        conn = self._get_db_connection()
+        cursor = conn.cursor()
         
         cursor.execute('''
             INSERT OR REPLACE INTO document_memories 
@@ -181,11 +192,12 @@ class DocMemoryCore:
             json.dumps(doc_memory.page_numbers)
         ))
         
-        self.conn.commit()
+        conn.commit()
     
     def _store_embedding(self, doc_id: str, embedding: np.ndarray):
         """Store document embedding in vector database"""
-        cursor = self.conn.cursor()
+        conn = self._get_db_connection()
+        cursor = conn.cursor()
         
         # Convert numpy array to bytes
         embedding_bytes = embedding.astype(np.float32).tobytes()
@@ -195,7 +207,7 @@ class DocMemoryCore:
             (id, embedding) VALUES (?, ?)
         ''', (doc_id, embedding_bytes))
         
-        self.conn.commit()
+        conn.commit()
         
         # Update FAISS index
         embedding_normalized = embedding / np.linalg.norm(embedding)
@@ -212,7 +224,8 @@ class DocMemoryCore:
             return self.document_memories[doc_id]
         
         # Load from database
-        cursor = self.conn.cursor()
+        conn = self._get_db_connection()
+        cursor = conn.cursor()
         cursor.execute('''
             SELECT * FROM document_memories WHERE id = ?
         ''', (doc_id,))
@@ -280,13 +293,14 @@ class DocMemoryCore:
     
     def delete_document(self, doc_id: str) -> bool:
         """Delete a document from memory system"""
-        cursor = self.conn.cursor()
+        conn = self._get_db_connection()
+        cursor = conn.cursor()
         
         # Delete from both tables
         cursor.execute("DELETE FROM document_memories WHERE id = ?", (doc_id,))
         cursor.execute("DELETE FROM document_embeddings WHERE id = ?", (doc_id,))
         
-        self.conn.commit()
+        conn.commit()
         
         # Remove from in-memory cache and unsaved changes
         self.document_memories.pop(doc_id, None)
@@ -299,7 +313,8 @@ class DocMemoryCore:
     
     def get_all_documents(self) -> List[DocumentMemory]:
         """Get all documents (use with caution - loads all into memory)"""
-        cursor = self.conn.cursor()
+        conn = self._get_db_connection()
+        cursor = conn.cursor()
         cursor.execute("SELECT id FROM document_memories")
         
         docs = []
@@ -312,11 +327,12 @@ class DocMemoryCore:
     
     def get_document_count(self) -> int:
         """Get count of stored documents"""
-        cursor = self.conn.cursor()
+        conn = self._get_db_connection()
+        cursor = conn.cursor()
         cursor.execute("SELECT COUNT(*) FROM document_memories")
         return cursor.fetchone()[0]
     
     def close(self):
         """Close database connection"""
-        if hasattr(self, 'conn'):
-            self.conn.close()
+        if hasattr(self.local, 'conn'):
+            self.local.conn.close()

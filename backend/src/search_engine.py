@@ -1,16 +1,16 @@
 """
-DocMemory - Search and Retrieval Algorithms
+Aethersite - Search and Retrieval Algorithms
 Advanced semantic search and retrieval functionality
 """
 import numpy as np
 from typing import List, Dict, Tuple, Optional
 from collections import defaultdict
-from .docmemory_core import DocMemoryCore, DocumentMemory
+from .docmemory_core import AethersiteCore, DocumentMemory
 
 class SemanticSearchEngine:
     """Advanced semantic search engine for document retrieval"""
     
-    def __init__(self, core_memory: DocMemoryCore):
+    def __init__(self, core_memory: AethersiteCore):
         self.core_memory = core_memory
         self.search_history = []
         self.max_search_history = 100
@@ -254,8 +254,8 @@ class SemanticSearchEngine:
         related_docs.sort(key=lambda x: x[1], reverse=True)
         return related_docs[:limit]
 
-class DocMemorySearchSystem:
-    """Main search system integrating with DocMemory"""
+class AethersiteSearchSystem:
+    """Main search system integrating with Aethersite"""
     
     def __init__(self, docmemory_system):
         self.docmemory_system = docmemory_system

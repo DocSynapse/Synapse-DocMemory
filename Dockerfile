@@ -1,7 +1,7 @@
 # → Architecture & Build by DocSynapse
 # Intelligent by Design. Crafted for Humanity.
 
-# Multi-stage build for DocMemory
+# Multi-stage build for Aethersite
 FROM python:3.9-slim as backend
 
 WORKDIR /app

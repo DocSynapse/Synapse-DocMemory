@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" style="background:#1e1e1e">
   <!-- Title -->
   <text x="400" y="30" text-anchor="middle" fill="#e0e0e0" font-size="20" font-weight="bold">
-    DocMemory Architecture
+    Aethersite Architecture
   </text>
   
   <!-- Application Layer -->

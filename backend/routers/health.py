@@ -12,7 +12,7 @@ router = APIRouter()
 @router.get("/health")
 async def health_check():
     """Basic health check"""
-    return {"status": "healthy", "service": "DocMemory API"}
+    return {"status": "healthy", "service": "Aethersite API"}
 
 @router.get("/status")
 async def system_status(system = Depends(get_docmemory_system)):

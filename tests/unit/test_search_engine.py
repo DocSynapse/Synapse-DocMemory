@@ -6,21 +6,21 @@ Unit tests for search engine
 """
 import pytest
 import numpy as np
-from src.search_engine import DocMemorySearchSystem
-from src.docmemory_core import DocMemoryCore, DocumentMemory
+from backend.src.search_engine import AethersiteSearchSystem
+from backend.src.auto_save_load import AethersiteAutoSystem
 from datetime import datetime
 
 @pytest.fixture
-def mock_core():
-    """Create a mock core memory system"""
+def mock_auto_system():
+    """Create a mock auto system instance"""
     # TODO: Use proper mocking instead of creating actual instances
-    core = DocMemoryCore("./test_storage/")
-    return core
+    auto_system = AethersiteAutoSystem("./test_storage/")
+    return auto_system
 
 @pytest.fixture
-def search_system(mock_core):
+def search_system(mock_auto_system):
     """Create search system instance"""
-    return DocMemorySearchSystem(mock_core)
+    return AethersiteSearchSystem(mock_auto_system)
 
 def test_semantic_search(search_system):
     """Test semantic search functionality"""
@@ -47,4 +47,3 @@ def test_hybrid_search(search_system):
     """Test hybrid search functionality"""
     # TODO: Implement test
     pass
-

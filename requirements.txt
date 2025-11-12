@@ -1,5 +1,5 @@
-# DocMemory Requirements
-# Core dependencies for running DocMemory
+# Aethersite Requirements
+# Core dependencies for running Aethersite
 
 # Numerical computing and arrays
 numpy>=1.21.0

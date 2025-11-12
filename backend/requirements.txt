@@ -1,45 +1,13 @@
 # → Architecture & Build by DocSynapse
 # Intelligent by Design. Crafted for Humanity.
 
-# FastAPI and server
+# Core Aethersite dependencies (from parent requirements.txt)
+
+# FastAPI
 fastapi>=0.104.1
 uvicorn[standard]>=0.24.0
 python-multipart>=0.0.6
 
-# Pydantic for data validation
+# Pydantic
 pydantic>=2.5.0
 pydantic-settings>=2.1.0
-
-# CORS support
-python-cors>=1.0.0
-
-# Core DocMemory dependencies (from parent requirements.txt)
-# TODO: Consider creating a shared requirements file
-numpy>=1.21.0
-faiss-cpu>=1.7.0
-sentence-transformers>=2.2.0
-PyPDF2>=3.0.0
-pdfminer.six>=20220524
-python-docx>=0.8.11
-pandas>=1.3.0
-beautifulsoup4>=4.10.0
-Pillow>=9.0.0
-pytesseract>=0.3.0
-
-# Testing
-pytest>=7.4.3
-pytest-asyncio>=0.21.1
-httpx>=0.25.2
-
-# TODO: Add authentication dependencies when implementing auth
-# python-jose[cryptography]>=3.3.0
-# passlib[bcrypt]>=1.7.4
-
-# TODO: Add database dependencies when migrating to PostgreSQL
-# sqlalchemy>=2.0.23
-# alembic>=1.12.1
-# psycopg2-binary>=2.9.9
-
-# TODO: Add Redis for caching
-# redis>=5.0.1
-

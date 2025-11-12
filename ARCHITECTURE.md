@@ -1,8 +1,8 @@
-# DocMemory Architecture
+# Aethersite Architecture
 
 **Technical Deep Dive into System Design and Implementation**
 
-This document provides a comprehensive explanation of DocMemory's architecture, design decisions, and implementation details. It's intended for contributors, learners, and anyone curious about how semantic search systems work under the hood.
+This document provides a comprehensive explanation of Aethersite's architecture, design decisions, and implementation details. It's intended for contributors, learners, and anyone curious about how semantic search systems work under the hood.
 
 ---
 
@@ -20,7 +20,7 @@ This document provides a comprehensive explanation of DocMemory's architecture, 
 
 ## System Overview
 
-DocMemory implements a **hybrid document retrieval system** that combines:
+Aethersite implements a **hybrid document retrieval system** that combines:
 - **Vector-based semantic search** (FAISS)
 - **Traditional keyword search** (SQL LIKE queries)
 - **Metadata-rich storage** (SQLite)
@@ -30,7 +30,7 @@ DocMemory implements a **hybrid document retrieval system** that combines:
 ```
 ┌──────────────────────────────────────────────────────────────┐
 │                    Application Interface                      │
-│              DocMemorySystem (main.py)                       │
+│              AethersiteSystem (main.py)                       │
 └────────────────────┬─────────────────────────────────────────┘
                      │
      ┌───────────────┼───────────────┐
@@ -48,7 +48,7 @@ DocMemory implements a **hybrid document retrieval system** that combines:
        └───────────────┼─────────────────┘
                        ▼
         ┌──────────────────────────────┐
-        │      DocMemoryCore           │
+        │      AethersiteCore           │
         │   (Core Memory Management)    │
         │                               │
         │  ┌─────────┐  ┌────────────┐ │
@@ -564,8 +564,8 @@ If you're new to these concepts:
 
 Found something unclear? Want to propose an architectural change?
 
-- Open an issue: [GitHub Issues](https://github.com/DocSynapse/Synapse-DocMemory/issues)
-- Start a discussion: [GitHub Discussions](https://github.com/DocSynapse/Synapse-DocMemory/discussions)
+- Open an issue: [GitHub Issues](https://github.com/DocSynapse/Aethersite/issues)
+- Start a discussion: [GitHub Discussions](https://github.com/DocSynapse/Aethersite/discussions)
 
 ---
 

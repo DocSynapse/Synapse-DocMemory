@@ -1,5 +1,5 @@
 """
-DocMemory - Auto-save and Auto-load Mechanisms
+Aethersite - Auto-save and Auto-load Mechanisms
 """
 import threading
 import time
@@ -10,12 +10,12 @@ from pathlib import Path
 from datetime import datetime
 import zipfile
 import shutil
-from .docmemory_core import DocMemoryCore, DocumentMemory
+from .docmemory_core import AethersiteCore, DocumentMemory
 
 class AutoSaveManager:
     """Manages automatic saving of document memories"""
     
-    def __init__(self, core_memory: DocMemoryCore, 
+    def __init__(self, core_memory: AethersiteCore,
                  auto_save_interval: int = 300,  # 5 minutes
                  backup_interval: int = 3600):   # 1 hour
         self.core_memory = core_memory
@@ -35,7 +35,8 @@ class AutoSaveManager:
         
         # Register cleanup handlers
         atexit.register(self.graceful_shutdown)
-        signal.signal(signal.SIGINT, self._signal_handler)
+        if threading.current_thread() is threading.main_thread():
+            signal.signal(signal.SIGINT, self._signal_handler)
     
     def _start_background_processes(self):
         """Start background threads for auto operations"""
@@ -126,14 +127,14 @@ class AutoSaveManager:
 class AutoLoadManager:
     """Manages automatic loading of document memories at startup"""
     
-    def __init__(self, core_memory: DocMemoryCore, storage_path: str):
+    def __init__(self, core_memory: AethersiteCore, storage_path: str):
         self.core_memory = core_memory
         self.storage_path = Path(storage_path)
         self.state_file = self.storage_path / "system_state.json"
     
     def auto_load_system(self):
         """Automatically load the memory system at startup"""
-        print("Auto-loading DocMemory system...")
+        print("Auto-loading Aethersite system...")
         
         # Check if this is a fresh system or continuation
         if self.state_file.exists():
@@ -146,7 +147,7 @@ class AutoLoadManager:
             print(f"Last session: {state.get('last_start', 'Unknown')}")
         else:
             # First-time initialization
-            print("Initializing new DocMemory system")
+            print("Initializing new Aethersite system")
             self._initialize_system_state()
     
     def _initialize_system_state(self):
@@ -161,12 +162,12 @@ class AutoLoadManager:
         with open(self.state_file, 'w') as f:
             json.dump(initial_state, f, indent=2)
 
-class DocMemoryAutoSystem:
+class AethersiteAutoSystem:
     """Main system integrating core memory with auto-save/load"""
     
     def __init__(self, storage_path: str = "./docmemory_storage/"):
         # Initialize core memory system
-        self.core_memory = DocMemoryCore(storage_path)
+        self.core_memory = AethersiteCore(storage_path)
         
         # Initialize auto-load system
         self.auto_load = AutoLoadManager(self.core_memory, storage_path)
@@ -175,7 +176,7 @@ class DocMemoryAutoSystem:
         # Initialize auto-save system
         self.auto_save = AutoSaveManager(self.core_memory)
         
-        print(f"DocMemory system initialized at: {storage_path}")
+        print(f"Aethersite system initialized at: {storage_path}")
         print(f"Current document count: {self.core_memory.get_document_count()}")
     
     def add_document(self, 

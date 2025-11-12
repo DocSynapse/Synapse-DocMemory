@@ -1,11 +1,11 @@
-# DocMemory (DocSynapse)
+# Aethersite (DocSynapse)
 
 <!-- → Architecture & Build by DocSynapse-->
 <!-- Intelligent by Design. Crafted for Humanity. -->
 
 <div align="center">
 
-![DocMemory Logo](./DocMemory.png)
+![Aethersite Logo](./Aethersite.png)
 
 **Semantic Document Memory System with Vector Search**
 
@@ -24,11 +24,11 @@
 
 ## 🌟 Overview
 
-**DocMemory** is a full-stack semantic document memory system that combines vector search with traditional databases to create an intelligent document retrieval system. Built with Next.js frontend and FastAPI backend, it provides a modern web interface for document management and semantic search.
+**Aethersite** is a full-stack semantic document memory system that combines vector search with traditional databases to create an intelligent document retrieval system. Built with Next.js frontend and FastAPI backend, it provides a modern web interface for document management and semantic search.
 
 ### Why This Exists
 
-The GitHub community gave me so much — tools, libraries, knowledge, and inspiration. DocMemory is my attempt to give back, however small.
+The GitHub community gave me so much — tools, libraries, knowledge, and inspiration. Aethersite is my attempt to give back, however small.
 
 **We take, and we also give hands.** That's how we all grow together.
 
@@ -80,52 +80,37 @@ Chunking: 1000 chars with 100 char overlap, sentence-aware
 ## 📁 Project Structure
 
 ```
-DocMemory/
+Aethersite/
 ├── frontend/                 # Next.js frontend application
 │   ├── app/                  # Next.js App Router pages
-│   │   ├── layout.tsx        # Root layout component
-│   │   ├── page.tsx          # Home page
-│   │   └── globals.css       # Global styles
 │   ├── components/           # React components
-│   │   ├── SearchBar.tsx     # Search input component
-│   │   ├── DocumentList.tsx  # Document list display
-│   │   └── UploadArea.tsx    # File upload component
 │   ├── __tests__/            # Frontend unit tests
 │   ├── package.json          # Node.js dependencies
-│   ├── next.config.js        # Next.js configuration
-│   ├── tsconfig.json         # TypeScript configuration
-│   ├── tailwind.config.js    # Tailwind CSS configuration
-│   └── jest.config.js        # Jest test configuration
+│   └── ...                   # Other Next.js files
 │
 ├── backend/                  # FastAPI backend application
+│   ├── src/                  # Core Aethersite library
+│   │   ├── __init__.py
+│   │   ├── docmemory_core.py
+│   │   ├── search_engine.py
+│   │   ├── document_processor.py
+│   │   └── auto_save_load.py
 │   ├── routers/              # API route handlers
-│   │   ├── health.py         # Health check endpoints
-│   │   ├── search.py         # Search endpoints
-│   │   └── documents.py      # Document CRUD endpoints
 │   ├── core/                 # Core backend utilities
-│   │   ├── config.py         # Application configuration
-│   │   └── dependencies.py   # Dependency injection
 │   ├── main.py               # FastAPI application entry point
 │   └── requirements.txt      # Python dependencies
 │
-├── src/                      # Core DocMemory library
-│   ├── docmemory_core.py     # Core memory management
-│   ├── search_engine.py      # Search algorithms
-│   ├── document_processor.py # Document parsing and chunking
-│   └── auto_save_load.py     # Persistence management
-│
 ├── tests/                    # Test suite
 │   ├── unit/                 # Unit tests
-│   │   └── test_search_engine.py
 │   ├── integration/          # Integration tests
-│   │   └── test_api.py
 │   └── conftest.py           # Pytest configuration
 │
 ├── docs/                     # Documentation
 │   ├── architecture.md       # System architecture details
 │   ├── api.md                # API documentation
 │   ├── setup.md              # Setup and installation guide
-│   └── runbook.md            # Operational procedures
+│   ├── runbook.md            # Operational procedures
+│   └── changelog.md          # Changelog
 │
 ├── .github/                  # GitHub configuration
 │   └── workflows/
@@ -138,60 +123,6 @@ DocMemory/
 ├── pytest.ini               # Pytest configuration
 └── README.md                 # This file
 ```
-
-### File Descriptions
-
-#### Frontend Files
-
-- **`frontend/app/layout.tsx`**: Root layout with metadata configuration
-- **`frontend/app/page.tsx`**: Main home page with search and document display
-- **`frontend/components/SearchBar.tsx`**: Search input component with query handling
-- **`frontend/components/DocumentList.tsx`**: Component for displaying search results
-- **`frontend/components/UploadArea.tsx`**: File upload interface with drag-and-drop
-- **`frontend/package.json`**: Node.js dependencies and scripts
-- **`frontend/next.config.js`**: Next.js configuration (TODO: Configure production API URL)
-- **`frontend/tsconfig.json`**: TypeScript compiler configuration
-- **`frontend/tailwind.config.js`**: Tailwind CSS theme configuration (TODO: Customize theme)
-- **`frontend/jest.config.js`**: Jest test configuration (TODO: Configure coverage thresholds)
-
-#### Backend Files
-
-- **`backend/main.py`**: FastAPI application with CORS and route registration
-- **`backend/routers/health.py`**: Health check and system status endpoints
-- **`backend/routers/search.py`**: Search API endpoints (semantic, keyword, hybrid)
-- **`backend/routers/documents.py`**: Document upload, list, get, and related documents endpoints (TODO: Implement pagination)
-- **`backend/core/config.py`**: Application settings and environment variables (TODO: Add database URL, Redis URL, auth settings)
-- **`backend/core/dependencies.py`**: Dependency injection for DocMemory system instance
-- **`backend/requirements.txt`**: Backend Python dependencies (TODO: Add auth, database, Redis dependencies)
-
-#### Core Library Files
-
-- **`src/docmemory_core.py`**: Core memory management with SQLite and FAISS
-- **`src/search_engine.py`**: Search algorithms (semantic, keyword, hybrid)
-- **`src/document_processor.py`**: Document parsing, chunking, and embedding
-- **`src/auto_save_load.py`**: Automatic persistence and backup management
-
-#### Test Files
-
-- **`tests/unit/test_search_engine.py`**: Unit tests for search functionality (TODO: Add more test cases)
-- **`tests/integration/test_api.py`**: Integration tests for API endpoints (TODO: Add more tests)
-- **`tests/conftest.py`**: Shared pytest fixtures and configuration
-- **`pytest.ini`**: Pytest configuration with coverage settings
-
-#### Infrastructure Files
-
-- **`Dockerfile`**: Multi-stage Docker build for production (TODO: Add production optimizations, healthcheck, non-root user)
-- **`docker-compose.yml`**: Docker Compose configuration for development (TODO: Add PostgreSQL, Redis, healthchecks)
-- **`frontend/Dockerfile`**: Frontend-specific Dockerfile for Next.js
-- **`.dockerignore`**: Files to exclude from Docker builds
-- **`.github/workflows/ci.yml`**: GitHub Actions CI/CD pipeline (TODO: Add coverage upload, Docker push)
-
-#### Documentation Files
-
-- **`docs/architecture.md`**: Detailed system architecture and design decisions
-- **`docs/api.md`**: Complete API documentation with examples
-- **`docs/setup.md`**: Installation and setup instructions
-- **`docs/runbook.md`**: Operational procedures and troubleshooting guide
 
 ---
 
@@ -210,8 +141,8 @@ DocMemory/
 
 ```bash
 # Clone the repository
-git clone https://github.com/DocSynapse/Synapse-DocMemory.git
-cd Synapse-DocMemory
+git clone https://github.com/DocSynapse/Aethersite.git
+cd Aethersite
 
 # Start with Docker Compose
 docker-compose up --build
@@ -260,35 +191,6 @@ npm run dev
 
 ## 🏗️ Architecture
 
-### System Components
-
-```
-┌─────────────────────────────────────────────────────────┐
-│                   Frontend (Next.js)                    │
-│              React Components + API Client              │
-└────────────────────┬────────────────────────────────────┘
-                     │ HTTP/REST
-┌────────────────────▼────────────────────────────────────┐
-│                  Backend (FastAPI)                       │
-│              REST API + Business Logic                   │
-└────────────────────┬────────────────────────────────────┘
-                     │
-        ┌────────────┼────────────┐
-        │            │            │
-        ▼            ▼            ▼
-┌──────────────┐ ┌─────────┐ ┌──────────────┐
-│  Document    │ │ Search  │ │ Persistence  │
-│  Processor   │ │ Engine  │ │ Manager      │
-└──────┬───────┘ └────┬────┘ └──────┬───────┘
-       │              │              │
-       └──────────────┼──────────────┘
-                      ▼
-         ┌────────────────────────┐
-         │   Core Memory System   │
-         │  (SQLite + FAISS)       │
-         └────────────────────────┘
-```
-
 For detailed architecture documentation, see [docs/architecture.md](./docs/architecture.md).
 
 ---
@@ -299,7 +201,7 @@ For detailed architecture documentation, see [docs/architecture.md](./docs/archi
 - **[docs/api.md](./docs/api.md)** — Complete API documentation with examples
 - **[docs/setup.md](./docs/setup.md)** — Installation and setup guide
 - **[docs/runbook.md](./docs/runbook.md)** — Operational procedures and troubleshooting
-- **[ARCHITECTURE.md](./ARCHITECTURE.md)** — Original architecture documentation
+- **[docs/changelog.md](./docs/changelog.md)** — Project changelog
 
 ---
 
@@ -312,10 +214,7 @@ For detailed architecture documentation, see [docs/architecture.md](./docs/archi
 pytest tests/ -v
 
 # Run with coverage
-pytest tests/ --cov=backend --cov=src --cov-report=html
-
-# Run specific test file
-pytest tests/unit/test_search_engine.py -v
+pytest tests/ --cov=backend --cov-report=html
 ```
 
 ### Frontend Tests
@@ -328,9 +227,6 @@ npm test
 
 # Run with coverage
 npm test -- --coverage
-
-# Run in watch mode
-npm test -- --watch
 ```
 
 ---
@@ -346,8 +242,8 @@ docker-compose up --build
 ### Production Build
 
 ```bash
-docker build -t docmemory:latest .
-docker run -p 8000:8000 docmemory:latest
+docker build -t aethersite:latest .
+docker run -p 8000:8000 aethersite:latest
 ```
 
 ---
@@ -367,111 +263,12 @@ See [.github/workflows/ci.yml](./.github/workflows/ci.yml) for details.
 
 ---
 
-## 🛠️ Development
-
-### Code Style
-
-**Python:**
-- Follow PEP 8
-- Use Black for formatting (TODO: Add pre-commit hooks)
-- Type hints recommended
-
-**TypeScript:**
-- ESLint configuration included
-- Prettier recommended (TODO: Add Prettier config)
-
-### Adding Features
-
-1. Create feature branch
-2. Implement feature with tests
-3. Update documentation
-4. Submit pull request
-
----
-
 ## 🤝 Contributing
 
-Contributions are warmly welcomed! Whether it's:
-- 🐛 Bug reports
-- 💡 Feature suggestions
-- 📝 Documentation improvements
-- 🔧 Code contributions
-
-Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
-
-### Areas Where Help is Needed
-
-- [ ] Production error handling and edge cases
-- [ ] Performance benchmarking suite
-- [ ] More document format support (Markdown, LaTeX, etc.)
-- [ ] Graph-based relationship visualization
-- [ ] Distributed deployment support
-- [ ] Authentication and authorization
-- [ ] Database migration to PostgreSQL
-- [ ] Redis caching implementation
-
----
-
-## 🗺️ Roadmap
-
-### Near Term (Next Version)
-
-- [ ] Complete test coverage
-- [ ] Production optimizations
-- [ ] Authentication system
-- [ ] Database migration to PostgreSQL
-- [ ] Redis caching layer
-- [ ] Performance benchmarking
-
-### Future Vision
-
-- [ ] True graph-based neural connections (NetworkX integration)
-- [ ] Multi-modal support (images, audio)
-- [ ] Distributed FAISS for scaling
-- [ ] Real-time collaborative features
-- [ ] Advanced analytics dashboard
+Contributions are warmly welcomed! Please see [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
 ---
 
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
-
-```
-MIT License - Free to use, modify, and distribute.
-Built with ❤️ for the community.
-```
-
----
-
-## 🙏 Acknowledgments
-
-This project wouldn't exist without:
-
-- **FAISS** — Facebook AI's vector similarity library
-- **Sentence Transformers** — Hugging Face's embedding models
-- **SQLite** — The most deployed database in the world
-- **Next.js** — React framework for production
-- **FastAPI** — Modern Python web framework
-- **The entire open source community** — For countless tools and inspiration
-
-Special thanks to everyone who contributes, reports issues, or simply uses this project. You make sharing worthwhile. 🙌
-
----
-
-## 📧 Contact & Support
-
-- **Issues:** [GitHub Issues](https://github.com/DocSynapse/Synapse-DocMemory/issues)
-- **Discussions:** [GitHub Discussions](https://github.com/DocSynapse/Synapse-DocMemory/discussions)
-
----
-
-<div align="center">
-
-**Built with 🧠 by the DocMemory Community**
-
-*Architecture & Build by DocSynapse • Intelligent by Design. Crafted for Humanity.*
-
-[⭐ Star this repo](https://github.com/DocSynapse/Synapse-DocMemory) if you find it useful!
-
-</div>

@@ -1,5 +1,5 @@
 """
-DocMemory - Document Processing Pipeline
+Aethersite - Document Processing Pipeline
 Handles various document formats and content extraction
 """
 import os
@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import List, Dict, Any, Tuple
 from dataclasses import dataclass
 import hashlib
+import re
 
 try:
     import PyPDF2
@@ -183,50 +184,35 @@ class DocumentProcessor:
     
     def _create_chunks(self, content: str, title: str) -> List[DocumentChunk]:
         """Split content into manageable chunks"""
+        # Split the content into sentences
+        sentences = re.split(r'(?<=[.!?]) +', content)
         chunks = []
-        
-        # Split content into chunks of max_chunk_size with overlap
-        start = 0
+        current_chunk = ""
         chunk_index = 0
-        
-        while start < len(content):
-            end = start + self.max_chunk_size
-            
-            # If we're not at the end, try to break at sentence boundary
-            if end < len(content):
-                # Look for a good breaking point (sentence end, paragraph end, or space)
-                search_start = end - self.chunk_overlap
-                break_point = end
-                
-                # Look for punctuation followed by space
-                for i in range(min(end, len(content)) - 1, search_start, -1):
-                    if content[i] in '.!?;':
-                        if i + 1 < len(content) and content[i + 1] in ' \n\t':
-                            break_point = i + 1
-                            break
-                        elif i + 2 < len(content) and content[i + 1] in ' \n\t':
-                            break_point = i + 2
-                            break
-                
-                # If no good breaking point found, use the overlap point
-                if break_point == end:
-                    break_point = max(search_start, start + 50)  # Ensure minimum chunk size
-            
-            chunk_content = content[start:break_point].strip()
-            if chunk_content:  # Only add non-empty chunks
+
+        for sentence in sentences:
+            if len(current_chunk) + len(sentence) < self.max_chunk_size:
+                current_chunk += " " + sentence
+            else:
                 chunks.append(DocumentChunk(
-                    content=chunk_content,
+                    content=current_chunk.strip(),
                     page_number=1,  # Will be updated if processing multi-page docs
                     chunk_index=chunk_index
                 ))
                 chunk_index += 1
-            
-            start = break_point
+                current_chunk = sentence
         
+        if current_chunk:
+            chunks.append(DocumentChunk(
+                content=current_chunk.strip(),
+                page_number=1,  # Will be updated if processing multi-page docs
+                chunk_index=chunk_index
+            ))
+
         return chunks
 
 class DocumentIngestionPipeline:
-    """Main pipeline for ingesting documents into DocMemory"""
+    """Main pipeline for ingesting documents into Aethersite"""
     
     def __init__(self, docmemory_system):
         self.docmemory_system = docmemory_system
@@ -244,7 +230,7 @@ class DocumentIngestionPipeline:
                                    title: str = None,
                                    tags: List[str] = None,
                                    custom_metadata: Dict[str, Any] = None) -> List[str]:
-        """Process a document and store it in DocMemory"""
+        """Process a document and store it in Aethersite"""
         if self.embedding_model is None:
             raise ValueError("Embedding model must be set before processing documents")
         
@@ -263,7 +249,7 @@ class DocumentIngestionPipeline:
             if custom_metadata:
                 metadata.update(custom_metadata)
             
-            # Store in DocMemory
+            # Store in Aethersite
             doc_id = self.docmemory_system.add_document(
                 content=chunk.content,
                 title=chunk.metadata.get('title', self.processor.default_title),
@@ -336,5 +322,5 @@ class DocumentIngestionPipeline:
 
 # Example usage
 if __name__ == "__main__":
-    # This would be used with the DocMemory system
+    # This would be used with the Aethersite system
     print("Document processor ready.")

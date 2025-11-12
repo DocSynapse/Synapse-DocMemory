@@ -16,25 +16,18 @@ def test_health_check():
     assert response.status_code == 200
     assert response.json()["status"] == "healthy"
 
-def test_search_endpoint():
-    """Test search endpoint"""
-    # TODO: Add test data setup
-    response = client.post(
-        "/api/search/",
-        json={
-            "query": "test query",
-            "search_type": "hybrid",
-            "limit": 10
-        }
-    )
-    assert response.status_code in [200, 500]  # 500 if no documents
-    # TODO: Add more specific assertions
+def test_list_documents_endpoint():
+    """Test list documents endpoint"""
+    response = client.get("/api/documents/")
+    assert response.status_code == 200
+    assert "documents" in response.json()
 
 def test_upload_endpoint():
     """Test document upload endpoint"""
-    # TODO: Create test file
-    # TODO: Implement upload test
-    pass
-
-# TODO: Add more integration tests
-
+    with open("README.md", "rb") as f:
+        response = client.post(
+            "/api/documents/upload",
+            files={"file": ("README.md", f, "text/markdown")},
+        )
+    assert response.status_code == 200
+    assert "document_ids" in response.json()

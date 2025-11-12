@@ -1,6 +1,6 @@
-# Contributing to DocMemory
+# Contributing to Aethersite
 
-First off, **thank you** for considering contributing to DocMemory! 🙌
+First off, **thank you** for considering contributing to Aethersite! 🙌
 
 We take and we give hands — that's the spirit of this project. Whether you're fixing a typo, reporting a bug, or proposing a major feature, your contribution is valued.
 
@@ -70,7 +70,7 @@ Before creating a bug report:
 **Actual Behavior:** What actually happens
 
 **Environment:**
-- DocMemory version: 1.0.0
+- Aethersite version: 1.0.0
 - Python version: 3.9.5
 - OS: Ubuntu 22.04
 
@@ -144,8 +144,8 @@ git --version
 
 ```bash
 # 1. Fork and clone
-git clone https://github.com/DocSynapse/Synapse-DocMemory.git
-cd Synapse-DocMemory
+git clone https://github.com/DocSynapse/Aethersite.git
+cd Aethersite
 
 # 2. Create virtual environment
 python -m venv venv
@@ -161,7 +161,7 @@ pip install -r requirements-dev.txt
 pytest tests/
 
 # 6. Verify installation
-python -c "from main import DocMemorySystem; print('Success!')"
+python -c "from main import AethersiteSystem; print('Success!')"
 ```
 
 ### Project Structure
@@ -241,11 +241,11 @@ def search_documents(query: str, limit: int = 10) -> List[Dict]:
 **Writing tests:**
 ```python
 import pytest
-from main import DocMemorySystem
+from main import AethersiteSystem
 
 def test_document_ingestion():
     """Test basic document ingestion and retrieval"""
-    system = DocMemorySystem(storage_path="./test_storage/")
+    system = AethersiteSystem(storage_path="./test_storage/")
     
     # Add test document
     doc_ids = system.add_document_from_file(
@@ -399,8 +399,8 @@ Closes #[issue number]
 ## Questions?
 
 **Not sure where to start?**
-- Check [Good First Issues](https://github.com/DocSynapse/Synapse-DocMemory/labels/good%20first%20issue)
-- Ask in [Discussions](https://github.com/DocSynapse/Synapse-DocMemory/discussions)
+- Check [Good First Issues](https://github.com/DocSynapse/Aethersite/labels/good%20first%20issue)
+- Ask in [Discussions](https://github.com/DocSynapse/Aethersite/discussions)
 - Reach out via email: your.email@example.com
 
 **Need clarification?**
@@ -421,7 +421,7 @@ Contributors are recognized in:
 
 ## Thank You!
 
-Your contribution, no matter how small, makes DocMemory better for everyone. 
+Your contribution, no matter how small, makes Aethersite better for everyone.
 
 **We take and we give hands.** 🤝
 

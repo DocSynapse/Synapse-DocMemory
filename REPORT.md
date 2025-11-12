@@ -1,7 +1,7 @@
 # → Architecture & Build by DocSynapse
 # Intelligent by Design. Crafted for Humanity.
 
-# DocMemory Project Completion Report
+# Aethersite Project Completion Report
 
 ---
 
@@ -10,9 +10,9 @@
 ✅ **Status:** Project berhasil di-submit ke GitHub
 
 **Repository Information:**
-- **URL:** https://github.com/DocSynapse/Synapse-DocMemory
+- **URL:** https://github.com/DocSynapse/Aethersite
 - **Organization:** DocSynapse
-- **Repository:** Synapse-DocMemory
+- **Repository:** Aethersite
 - **Branch:** master
 - **Total Commits:** 4 commits
 
@@ -36,13 +36,13 @@
 ## 2. Progress telah selesai dan dapat di akses di link:
 
 ### Repository Access
-**GitHub Repository:** https://github.com/DocSynapse/Synapse-DocMemory
+**GitHub Repository:** https://github.com/DocSynapse/Aethersite
 
 ### Documentation
-- **README:** https://github.com/DocSynapse/Synapse-DocMemory#readme
-- **Architecture:** https://github.com/DocSynapse/Synapse-DocMemory/blob/master/docs/architecture.md
-- **API Docs:** https://github.com/DocSynapse/Synapse-DocMemory/blob/master/docs/api.md
-- **Setup Guide:** https://github.com/DocSynapse/Synapse-DocMemory/blob/master/docs/setup.md
+- **README:** https://github.com/DocSynapse/Aethersite#readme
+- **Architecture:** https://github.com/DocSynapse/Aethersite/blob/master/docs/architecture.md
+- **API Docs:** https://github.com/DocSynapse/Aethersite/blob/master/docs/api.md
+- **Setup Guide:** https://github.com/DocSynapse/Aethersite/blob/master/docs/setup.md
 
 ### Local Development
 - **Frontend:** http://localhost:3000
