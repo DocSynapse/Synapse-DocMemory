@@ -1,8 +1,5 @@
 # DocMemory (DocSynapse)
 
-<!-- → Architecture & Build by DocSynapse-->
-<!-- Intelligent by Design. Crafted for Humanity. -->
-
 <div align="center">
 
 ![DocMemory Logo](./DocMemory.png)
@@ -24,7 +21,20 @@
 
 ## 🌟 Overview
 
-**DocMemory** is a full-stack semantic document memory system that combines vector search with traditional databases to create an intelligent document retrieval system. Built with Next.js frontend and FastAPI backend, it provides a modern web interface for document management and semantic search.
+**DocMemory** adalah document intelligence system yang mentransformasi dokumen menjadi knowledge network yang dapat di-query menggunakan natural language. Sistem ini menggabungkan vector search dengan traditional databases untuk menciptakan personal knowledge base yang dapat "berbicara" dengan pengguna.
+
+**Essence:** *Sederhana namun fundamental — memberikan kemampuan untuk "berbicara dengan dokumen" seperti database pribadi yang memahami konteks dan makna.*
+
+### Core Philosophy
+
+Upload → Process → Search → Connect
+
+```
+┌─────────────┐   ┌──────────┐   ┌──────────┐   ┌──────────┐
+│  PDF/DOCX   │ → │   AI     │ → │  Query   │ → │  Memory  │
+│  5MB limit  │   │  Embed   │   │  Natural │   │  Graph   │
+└─────────────┘   └──────────┘   └──────────┘   └──────────┘
+```
 
 ### Why This Exists
 
@@ -45,36 +55,120 @@ If this code helps even one person learn something new, or solves even one probl
 
 ---
 
+## 🧠 DocMemory Facilities
+
+### 🔍 Core AI Features
+
+- **Smart Document Upload**  
+  Support untuk PDF, DOCX, TXT dengan OCR capability untuk image-based documents
+  
+- **Vector Embeddings**  
+  Semantic search menggunakan sentence-transformers (all-MiniLM-L6-v2, 384-dim vectors)
+  
+- **Memory Network**  
+  Automatic connections antar dokumen berdasarkan semantic similarity
+  
+- **Instant Search**  
+  Cari berdasarkan makna dan konteks, bukan hanya keyword matching
+
+### 💾 Storage & Management
+
+- **Auto-Save**  
+  Document metadata dan embeddings tersimpan otomatis ke SQLite
+  
+- **Memory Snapshots**  
+  Backup capability untuk memory state dengan rotation management
+  
+- **Simple Web UI**  
+  Drag-drop upload interface, instant search box, dan result cards
+  
+- **Thread-Safe Operations**  
+  Concurrent access dengan graceful shutdown handlers
+
+### 🛠️ Technical Stack
+
+```
+Frontend:     Next.js 14 + TypeScript + Tailwind CSS
+Backend:      FastAPI + Python 3.9+ + Uvicorn
+Storage:      SQLite (metadata) + FAISS (vectors)
+Embeddings:   Sentence Transformers (all-MiniLM-L6-v2)
+Search:       Hybrid (70% semantic + 30% keyword)
+Deployment:   Docker containerized, one-click start
+```
+
+### 📱 User Experience
+
+**Simple 4-Step Flow:**
+
+1. **Upload** — Drag-drop dokumen (max 5MB per file)
+2. **Process** — AI ekstrak content, generate embeddings, build connections
+3. **Search** — Query dengan natural language
+4. **Connect** — Discover related documents automatically
+
+### 🚀 Local Deployment
+
+Windows users dapat menggunakan batch files untuk deployment:
+
+- **`start_docmemory.bat`** — One-click untuk start semua services
+- **`stop_docmemory.bat`** — One-click untuk stop services
+- **Health Check** — Otomatis verifikasi sistem ready
+- **Port 8000** — Local access via `http://localhost:8000`
+
+Sistem akan otomatis:
+- Start FastAPI backend server
+- Initialize FAISS vector index
+- Load SQLite database
+- Verify health endpoints
+- Ready untuk accept requests
+
+---
+
 ## ✨ Features
 
 ### Currently Implemented
-![SENTRA Governance Dashboard](https://drive.google.com/uc?export=view&id=1DZWAOJ5kn5u08eBULdtTwJIOWnC7zbkr)
+![DocMemory Interface](https://drive.google.com/uc?export=view&id=1DZWAOJ5kn5u08eBULdtTwJIOWnC7zbkr)
 
-- **🔍 Semantic Search** — Find documents by meaning, not just keywords, using FAISS vector similarity
-- **🔀 Hybrid Search** — Combines semantic understanding (70%) with keyword matching (30%) for balanced results
-- **💾 Persistent Storage** — SQLite database with automatic save/load and backup rotation
-- **📄 Multi-Format Support** — Process PDF, DOCX, TXT, HTML, CSV, and more
-- **🧩 Smart Chunking** — Intelligent content splitting with overlap for context preservation
-- **🏷️ Tagging System** — Organize and filter documents with custom tags
-- **🔗 Document Relationships** — Find related documents based on semantic similarity
-- **⚡ Fast Retrieval** — FAISS-powered vector indexing for millisecond-scale search
-- **🔄 Auto-Save** — Thread-safe automatic persistence with graceful shutdown handlers
-- **🌐 Modern Web Interface** — Next.js frontend with responsive design
-- **🚀 RESTful API** — FastAPI backend with OpenAPI documentation
-- **🐳 Docker Support** — Containerized deployment with docker-compose
-- **🧪 Testing Infrastructure** — Unit and integration tests
-- **🔄 CI/CD** — GitHub Actions for automated testing
+**🎯 Core Intelligence**
+- 🔍 **Semantic Search** — Find by meaning using FAISS vector similarity (inner product)
+- 🔀 **Hybrid Search** — Balanced results (70% semantic + 30% keyword matching)
+- 🧩 **Smart Chunking** — Intelligent content splitting (1000 chars, 100 overlap, sentence-aware)
+- 🔗 **Auto-Connect** — Discover document relationships automatically
+
+**📁 Document Handling**
+- 📄 **Multi-Format** — PDF, DOCX, TXT, HTML, CSV support
+- 🖼️ **OCR Ready** — Image-based document processing capability
+- 🏷️ **Tagging System** — Organize with custom tags
+- 💾 **Persistent Storage** — SQLite with auto-save and backup rotation
+
+**⚡ Performance**
+- 🚀 **Fast Retrieval** — Millisecond-scale search via FAISS indexing
+- 🔄 **Auto-Persistence** — Thread-safe automatic save with graceful shutdown
+- 📊 **Efficient Embeddings** — 384-dimensional vectors, optimized for speed
+
+**🌐 Full-Stack Implementation**
+- 💻 **Modern Web Interface** — Next.js 14 with responsive design
+- 🔌 **RESTful API** — FastAPI with OpenAPI documentation auto-generated
+- 🐳 **Docker Ready** — Containerized deployment with docker-compose
+- 🧪 **Test Coverage** — Unit and integration tests with CI/CD pipeline
 
 ### Architecture Highlights
 
 ```
-Frontend: Next.js 14 + TypeScript + Tailwind CSS
-Backend: FastAPI + Python 3.9+
-Storage: SQLite + FAISS + In-Memory Cache
-Embeddings: Sentence Transformers (all-MiniLM-L6-v2, 384-dim)
-Search: Inner product similarity (cosine distance)
-Chunking: 1000 chars with 100 char overlap, sentence-aware
+Frontend:      Next.js 14 + TypeScript + Tailwind CSS
+Backend:       FastAPI + Python 3.9+ + Uvicorn ASGI
+Storage:       SQLite (metadata & documents)
+Vector Index:  FAISS (Facebook AI Similarity Search)
+Embeddings:    Sentence Transformers (all-MiniLM-L6-v2, 384-dim)
+Search:        Inner product similarity (cosine distance)
+Chunking:      1000 chars with 100 char overlap, sentence-aware
+Deployment:    Docker containerized + Windows batch scripts
 ```
+
+**Key Design Decisions:**
+- **Hybrid Search** — 70% semantic relevance + 30% keyword matching untuk balanced results
+- **Local-First** — All data stored locally, no external dependencies required
+- **Fast & Lightweight** — MiniLM model untuk optimal speed/accuracy balance
+- **Simple Setup** — One-click deployment via batch files atau Docker
 
 ---
 
@@ -207,7 +301,33 @@ DocMemory/
 
 ### Installation
 
-#### Option 1: Docker (Recommended)
+#### Option 1: Windows One-Click Deployment (Easiest)
+
+```bash
+# Clone the repository
+git clone https://github.com/DocSynapse/Synapse-DocMemory.git
+cd Synapse-DocMemory
+
+# Start DocMemory (all services)
+start_docmemory.bat
+
+# Access the application
+# Backend API: http://localhost:8000
+# API Docs: http://localhost:8000/docs
+# Health Check: http://localhost:8000/health
+
+# Stop DocMemory when done
+stop_docmemory.bat
+```
+
+**What happens automatically:**
+- ✅ FastAPI backend starts on port 8000
+- ✅ FAISS vector index initialized
+- ✅ SQLite database loaded/created
+- ✅ Health endpoints verified
+- ✅ System ready for requests
+
+#### Option 2: Docker (Cross-Platform)
 
 ```bash
 # Clone the repository
@@ -223,7 +343,7 @@ docker-compose up --build
 # API Docs: http://localhost:8000/docs
 ```
 
-#### Option 2: Local Development
+#### Option 3: Local Development
 
 **Backend Setup:**
 ```bash
@@ -252,10 +372,33 @@ npm run dev
 
 ### First Steps
 
-1. **Access the Web Interface**: http://localhost:3000
-2. **Upload a Document**: Use the upload area or API
-3. **Search Documents**: Try semantic search queries
-4. **Explore API Docs**: http://localhost:8000/docs
+**1. Start the System**
+   - Windows: Run `start_docmemory.bat`
+   - Docker: Run `docker-compose up --build`
+   - Manual: Start backend with `uvicorn main:app --reload`
+
+**2. Verify Health**
+   - Visit: http://localhost:8000/health
+   - Should return: `{"status": "healthy", "version": "1.0.0"}`
+
+**3. Explore API**
+   - Interactive docs: http://localhost:8000/docs
+   - Try endpoints directly in browser
+
+**4. Upload First Document**
+   - Use Web UI (if frontend running): http://localhost:3000
+   - Or via API: POST to `/api/documents/upload`
+   - Max file size: 5MB
+   - Supported formats: PDF, DOCX, TXT, HTML, CSV
+
+**5. Search Your Documents**
+   - Natural language query: "How do I configure the database?"
+   - System returns semantically relevant chunks
+   - Related documents shown automatically
+
+**6. Explore Memory Network**
+   - Use `/api/documents/{doc_id}/related` to see connections
+   - Discover how documents link via semantic similarity
 
 ---
 
