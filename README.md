@@ -48,9 +48,7 @@ If this code helps even one person learn something new, or solves even one probl
 ## ✨ Features
 
 ### Currently Implemented
-<p align="center">
-  <img src="[https://drive.google.com/uc?id=1rtkqxAmCWzaJwT3FL0Tp8EG93bcLtOBV](https://ibb.co.com/chvh3mjT)" alt="Report">
-</p>
+![Dashboard Governance SENTRA](https://i.ibb.co/chvh3mjT/Screenshot-2024-11-26-115701.png)
 
 - **🔍 Semantic Search** — Find documents by meaning, not just keywords, using FAISS vector similarity
 - **🔀 Hybrid Search** — Combines semantic understanding (70%) with keyword matching (30%) for balanced results
