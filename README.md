@@ -48,7 +48,7 @@ If this code helps even one person learn something new, or solves even one probl
 ## ✨ Features
 
 ### Currently Implemented
-![Dashboard Governance SENTRA](https://i.ibb.co/chvh3mjT/Screenshot-2024-11-26-115701.png)
+![SENTRA Governance Dashboard](https://drive.google.com/uc?export=view&id=1DZWAOJ5kn5u08eBULdtTwJIOWnC7zbkr)
 
 - **🔍 Semantic Search** — Find documents by meaning, not just keywords, using FAISS vector similarity
 - **🔀 Hybrid Search** — Combines semantic understanding (70%) with keyword matching (30%) for balanced results
